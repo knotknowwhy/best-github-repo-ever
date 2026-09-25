@@ -13,6 +13,9 @@ class Main:
 
         self.player = PhysicsEntity(self, (50, 50), (23, 19))
 
+        self.font = pygame.font.SysFont("Arial", 24)
+        self.font_img = self.font.render("Kaaa", antialias=False, color=(2, 2, 2))
+
         floor_body = pymunk.Body(body_type=pymunk.Body.STATIC)
         floor_shape = pymunk.Segment(floor_body, (0, 300), (800, 300), 10)
         floor_shape.friction = 0.99
@@ -31,7 +34,7 @@ class Main:
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_a:
                         self.movement[0] = True
-                        print("Kraaaaaa")
+                        
                     if event.key == pygame.K_d:
                         self.movement[1] = True
                         print("Kraaaaaa")
@@ -47,7 +50,8 @@ class Main:
             pygame.draw.rect(self.screen, (149, 86, 59), (0, 300, 800, 300))
             pygame.draw.rect(self.screen, (106, 190, 48), (0, 300, 800, 200))
             self.player.draw(self.screen)
-
+            self.screen.blit(self.screen, (int(self.player.body.position.x), int(self.player.body.position.y)))
+            
             pygame.display.flip()
             self.space.step(1.0/60.0)
             self.clock.tick(60)
