@@ -14,51 +14,60 @@
             color: yellowgreen;
             font-family: Georgia, 'Times New Roman', Times, serif;
             font-size: 45px;
-            position: absolute;
-            
+            position: relative;
         }
-        .button1 {
-            color: black;
-            font-size: 15px;
+        .buttonNejlepsiTym {
+            color: bisque;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
             background-color: blueviolet;
             width: 150px;
             height: 75px;
         }
-        .button1:hover {
-            color: white;
+        .buttonNejlepsiTym:hover {
+            color:crimson;
+            
+        }
+        .buttonDownload {
+            color: bisque;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            background-color: blueviolet;
+            width: 150px;
+            height: 75px;
+        }
+        .buttonDownload:hover {
+            color:crimson;
             
         }
     </style>
 </head>
 <body>
-
     <h1>Pygame</h1>
-    <button class="button1">Který tým je nejlepší?</button>
+    <button class="buttonNejlepsiTym">Který tým je nejlepší?</button>
     <p class="text"></p>
-    <button class="button2">Download</button>
+    <button class="buttonDownload">Download</button>
 
     <script>
         const buttonNejlepsiTym = document.querySelector(".buttonNejlepsiTym")
         const buttonDownload = document.querySelector(".buttonDownload")
         const text = document.querySelector(".text")
 
-        let pressed = true
+        let pressed = false
+        buttonNejlepsiTym.addEventListener("click", nejlepsiTym)
 
-        tymy: {
-        "Tym1", "Tym2", "Tym3", "Tym4", "Tym5"
-    }
-
-        buttonNejlepsiTym.addEventListener("click", "nejlepsiTym")
+        const tymy = ["Tym1", "Tym2", "Tym3", "Tym4", "Tym5"]
 
         function nejlepsiTym() {
             if (pressed === false){
-
-                pressed = true
-            }
-            if (pressed === true){
-                
-                pressed = false
-            }
+            const randomTym = Math.floor(Math.random()*tymy.length)
+            text.textContent = tymy[randomTym]
+            pressed = true
+        } else if (pressed === true) {
+            const randomTym = Math.floor(Math.random()*tymy.length)
+            text.textContent = tymy[randomTym]
+            pressed = false
+        }
         }
     </script>
 </body>
