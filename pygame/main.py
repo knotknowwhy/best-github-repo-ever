@@ -27,15 +27,21 @@ class Main:
         self.space.add(floor_shape, floor_body)
 
     def run(self):
+        dir = "left"
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
                 if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_a: self.movement[0] = True
-                    if event.key == pygame.K_d: self.movement[1] = True
+                    if event.key == pygame.K_a: 
+                        dir = "left"
+                        self.movement[0] = True
+                    if event.key == pygame.K_d: 
+                        dir = "right"
+                        self.movement[1] = True
                     if event.key == pygame.K_SPACE:self.jump = True
+                    
                 if event.type == pygame.KEYUP:
                     self.say_kraa = False
                     if event.key == pygame.K_a: self.movement[0] = False
@@ -50,7 +56,7 @@ class Main:
             self.screen.fill((36, 137, 178))
             pygame.draw.rect(self.screen, (149, 86, 59), (0, 300, 800, 300))
             pygame.draw.rect(self.screen, (106, 190, 48), (0, 300, 800, 200))
-            self.player.draw(self.screen)
+            self.player.draw(self.screen, dir)
             
             if self.say_kraa:
                 self.screen.blit(self.font_img, (int(self.player.body.position.x) - 50, int(self.player.body.position.y)))
