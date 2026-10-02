@@ -1,85 +1,87 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        *{
-            margin: 0;
-            padding: 0;
-            background-color: bisque;
-        }
-        
-        h1 {
-            color: yellowgreen;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            font-size: 45px;
-            position: relative;
-        }
+      * {
+        background-color: bisque;
+        left: 25%;
+      }
 
-        .buttonNejlepsiTym {
-            color: bisque;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 20px;
-            background-color: blueviolet;
-            width: 150px;
-            height: 75px;
-        }
+      h1 {
+        color: yellowgreen;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        font-size: 45px;
+        position: relative;
+      }
 
-        .buttonNejlepsiTym:hover {
-            color:crimson;
-        }
+      .buttonNejlepsiTym {
+        color: bisque;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        background-color: blueviolet;
+        width: 150px;
+        height: 75px;
+        position: relative;
+      }
 
-        .buttonDownload {
-            color: bisque;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 20px;
-            background-color: blueviolet;
-            width: 150px;
-            height: 75px;
-        }
+      .buttonNejlepsiTym:hover {
+        color: crimson;
+      }
 
-        .buttonDownload:hover {
-            color: cyan;
-            
-        }
+      .buttonDownload {
+        color: bisque;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        background-color: blueviolet;
+        width: 150px;
+        height: 75px;
+        position: relative;
+        left: 26%;
+      }
+
+      .buttonDownload:hover {
+        color: cyan;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Pygame</h1>
     <button class="buttonNejlepsiTym">Který tým je nejlepší?</button>
     <p class="text"></p>
     <button class="buttonDownload">Download</button>
 
     <script>
-        const buttonNejlepsiTym = document.querySelector(".buttonNejlepsiTym")
-        const buttonDownload = document.querySelector(".buttonDownload")
-        const text = document.querySelector(".text")
-        const githubUrl = "https://github.com/knotknowwhy/best-github-repo-ever.git";
+      const buttonNejlepsiTym = document.querySelector(".buttonNejlepsiTym");
+      const buttonDownload = document.querySelector(".buttonDownload");
+      const text = document.querySelector(".text");
+      const githubUrl =
+        "https://github.com/knotknowwhy/best-github-repo-ever.git";
 
-        let pressed = false
+      let pressed = false;
 
-        buttonNejlepsiTym.addEventListener("click", nejlepsiTym)
-        buttonDownload.addEventListener("click", Download)
+      buttonNejlepsiTym.addEventListener("click", nejlepsiTym);
+      buttonDownload.addEventListener("click", Download);
 
-        const tymy = ["Tym1", "Tym2", "Tym3", "Tym4", "Tym5"]
+      const tymy = ["Tym1", "Tym2", "Tym3", "Tym4", "Tym5"];
 
-        function nejlepsiTym() {
-            if (pressed === false){
-            const randomTym = Math.floor(Math.random()*tymy.length)
-            text.textContent = tymy[randomTym]
-            pressed = true
+      function nejlepsiTym() {
+        if (pressed === false) {
+          const randomTym = Math.floor(Math.random() * tymy.length);
+          text.textContent = tymy[randomTym];
+          pressed = true;
         } else if (pressed === true) {
-            const randomTym = Math.floor(Math.random()*tymy.length)
-            text.textContent = tymy[randomTym]
-            pressed = false
+          const randomTym = Math.floor(Math.random() * tymy.length);
+          text.textContent = tymy[randomTym];
+          pressed = false;
         }
-    }
+      }
 
-        function Download() {
-        window.open(githubUrl, "_blank")
-        }
+      function Download() {
+        window.open(githubUrl, "_blank");
+      }
     </script>
-</body>
+  </body>
 </html>
