@@ -32,9 +32,9 @@ class PhysicsEntity:
             self.body.position = (0, self.body.position.y)
 
     def draw(self, screen: pygame.Surface, dir):
-        if dir == "right":
+        if dir == "left":
             screen.blit(self.img, (*self.body.position, *self.img.get_size()))
-        elif dir == "left":
+        elif dir == "right":
             screen.blit(pygame.transform.flip(self.img, True, False), (*self.body.position, *self.img.get_size()))
         
     def collision(self, arbiter, space, data):
